@@ -17,7 +17,7 @@ class CharactersController < ApplicationController
 
   def create
     @character = Character.new(character_params)
-
+    @character.user_id = current_user.id
     respond_to do |format|
       if @character.save
         format.html { redirect_to @character, notice: 'Character was successfully created.' }
@@ -56,6 +56,6 @@ class CharactersController < ApplicationController
 
     def character_params
       params.require(:character).permit(:name, :subtle, :powerful, :resistant, :level,
-      :xp)
+      :xp, :user_id)
     end
 end
