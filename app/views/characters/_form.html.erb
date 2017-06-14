@@ -10,7 +10,18 @@
       </ul>
     </div>
   <% end %>
-
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+    <%= f.label :subtle %>
+    <%= f.number_field :subtle %>
+    <%= f.label :powerful %>
+    <%= f.number_field :powerful %>
+    <%= f.label :resistant %>
+    <%= f.number_field :resistant %>
+    <%= f.label :level %>
+    <%= f.number_field :level %>
+    <%= f.label :XP %>
+    <%= f.number_field :XP %>
   <div class="actions">
     <%= f.submit %>
   </div>

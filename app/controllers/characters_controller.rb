@@ -54,8 +54,8 @@ class CharactersController < ApplicationController
       @character = Character.find(params[:id])
     end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
     def character_params
-      params.fetch(:character, {})
+      params.require(:character).permit(:name, :subtle, :powerful, :resistant, :level,
+      :xp)
     end
 end
