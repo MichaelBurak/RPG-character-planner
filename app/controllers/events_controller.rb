@@ -16,6 +16,7 @@ class EventsController < ApplicationController
   end
 
   def edit
+    @planner = Planner.find(params[:planner_id])
   end
 
   def create
@@ -33,9 +34,10 @@ class EventsController < ApplicationController
   end
 
   def update
+    @planner = Planner.find(params[:planner_id])
     respond_to do |format|
       if @event.update(event_params)
-        format.html { redirect_to @event, notice: 'Event was successfully updated.' }
+        format.html { redirect_to planner_event_path(@planner, @event), notice: 'Event was successfully updated.' }
         format.json { render :show, status: :ok, location: @event }
       else
         format.html { render :edit }
