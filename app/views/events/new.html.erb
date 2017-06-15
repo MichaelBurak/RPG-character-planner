@@ -1,5 +1,5 @@
 <h1>New Event</h1>
 
-<%= render 'form', event: @event %>
+<%= render 'form', planner: @planner, event: @event %>
 
-<%= link_to 'Back', events_path %>
+<%= link_to 'Back', planner_events_path(@planner, @event) %>

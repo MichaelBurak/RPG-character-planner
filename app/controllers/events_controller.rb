@@ -9,6 +9,7 @@ class EventsController < ApplicationController
   end
 
   def new
+    @planner = Planner.find(params[:planner_id])
     @event = Event.new
   end
 
@@ -16,8 +17,8 @@ class EventsController < ApplicationController
   end
 
   def create
-    @event = Event.new(event_params)
-    @planner = Planner.find(params[:id])
+    @planner = Planner.find(params[:planner_id])
+    @event = @planner.event.new(event_params)
     respond_to do |format|
       if @event.save
         format.html { redirect_to @event, notice: 'Event was successfully created.' }
