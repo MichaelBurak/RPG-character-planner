@@ -2,7 +2,10 @@ Rails.application.routes.draw do
 
   root 'welcome#home'
   resources :characters do
-    resources :planners
+    resources :planners, :except => [:create] do
+      resources :events
+    end
+    post '/planners/:id(.:format)', to: 'planners#create', as: 'create_planner'
 
   end
   devise_for :users

@@ -5,7 +5,7 @@
 <% if @character.planner %>
 <%= link_to "Planner", character_planner_path(@character) %>
     <% else %>
-    <%= link_to "Create Planner", new_character_planner_path(@character) %>
+    <%= link_to "Create Planner", character_create_planner_path(@character, current_user) %>
 <% end %>
 <%= link_to 'Edit', edit_character_path(@character) %> |
 <%= link_to 'Back', characters_path %>
