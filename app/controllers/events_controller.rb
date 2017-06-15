@@ -6,6 +6,8 @@ class EventsController < ApplicationController
   end
 
   def show
+    @planner = Planner.find(params[:planner_id])
+    @event_character = Character.find(@planner.character_id)
   end
 
   def new
@@ -18,10 +20,10 @@ class EventsController < ApplicationController
 
   def create
     @planner = Planner.find(params[:planner_id])
-    @event = @planner.event.new(event_params)
+    @event = @planner.events.new(event_params)
     respond_to do |format|
       if @event.save
-        format.html { redirect_to @event, notice: 'Event was successfully created.' }
+        format.html { redirect_to planner_event_path(@planner, @event), notice: 'Event was successfully created.' }
         format.json { render :show, status: :created, location: @event }
       else
         format.html { render :new }
@@ -58,6 +60,6 @@ class EventsController < ApplicationController
 
 
     def event_params
-      params.fetch(:event, {})
+      params.require(:event).permit(:name, :XP, :planner_id)
     end
 end

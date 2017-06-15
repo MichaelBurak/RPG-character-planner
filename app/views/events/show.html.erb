@@ -1,4 +1,8 @@
 <p id="notice"><%= notice %></p>
 
-<%= link_to 'Edit', edit_event_path(@event) %> |
-<%= link_to 'Back', events_path %>
+<h1> <%= @event_character.name %></h1>
+<h1><%= @event.name %></h1>
+<h2><%= @event.XP%></h2>
+
+<%= link_to 'Edit', edit_planner_event_path(@event) %> |
+<%= link_to 'Back', planner_events_path %>
