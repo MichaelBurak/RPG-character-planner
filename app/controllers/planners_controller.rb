@@ -2,6 +2,7 @@ class PlannersController < ApplicationController
   def show
     @character = Character.find(params[:character_id])
     @planner = Planner.find(params[:id])
+    @events = Event.all
   end
 
   def new

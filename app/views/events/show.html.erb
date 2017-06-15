@@ -6,4 +6,4 @@
 
 <%= link_to "Total XP", character_experience_path(@event_character) %>
 <%= link_to 'Edit', edit_planner_event_path(@planner, @event) %> |
-<%= link_to 'Back', planner_events_path %>
+<%= link_to 'Back', character_planner_path(@event_character, @planner) %>

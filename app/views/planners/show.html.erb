@@ -2,4 +2,8 @@
 
 <h1><%= @character.name %></h1>
 
+<h2>Events:
+<% @events.each do |event| %>
+      <p><%= event.name %></p>
+      <% end %> </h2>
 <%= link_to "Add event", new_planner_event_path(@planner) %>
