@@ -1,6 +1,7 @@
 class PlannersController < ApplicationController
   def show
     @character = Character.find(params[:character_id])
+    @planner = Planner.find(params[:id])
   end
 
   def new
@@ -10,12 +11,12 @@ class PlannersController < ApplicationController
   end
 
   def create
-    @character = Character.find(params[:id])
+    @character = Character.find(params[:character_id])
     @user = current_user
-    @planner = Planner.new(params[@character, @user])
+    @planner = Planner.new(:character_id => @character.id, :user_id => @user.id)
     respond_to do |format|
       if @planner.save
-        format.html { redirect_to @planner, notice: 'Planner was successfully created.' }
+        format.html { redirect_to character_planner_path(@planner), notice: 'Planner was successfully created.' }
         format.json { render :show, status: :created, location: @planner }
       else
         format.html { render :new }

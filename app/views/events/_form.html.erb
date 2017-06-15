@@ -10,8 +10,14 @@
       </ul>
     </div>
   <% end %>
-
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+    <%= f.label :XP %>
+    <%= f.number_field :XP %>
   <div class="actions">
     <%= f.submit %>
   </div>
 <% end %>
+
+t.string   "name"
+t.integer  "XP"
