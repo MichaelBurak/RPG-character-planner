@@ -6,7 +6,7 @@ class CreateCharacters < ActiveRecord::Migration[5.0]
       t.integer :powerful
       t.integer :resistant
       t.integer :level
-      t.integer :XP
+      t.integer :xp
 
       t.timestamps
     end

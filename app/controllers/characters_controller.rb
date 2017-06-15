@@ -49,6 +49,12 @@ class CharactersController < ApplicationController
     end
   end
 
+  def experience
+    @character = Character.find(params[:id])
+    @character.total_xp
+    redirect_to @character
+  end
+
   private
     def set_character
       @character = Character.find(params[:id])

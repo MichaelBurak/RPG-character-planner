@@ -7,6 +7,7 @@ Rails.application.routes.draw do
 
   end
 
+  get 'characters/:id(.:format)/experience', to: 'characters#experience', as: 'character_experience'
   resources :planners do
     resources :events
   end

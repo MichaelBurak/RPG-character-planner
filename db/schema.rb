@@ -18,7 +18,7 @@ ActiveRecord::Schema.define(version: 20170615205745) do
     t.integer  "powerful"
     t.integer  "resistant"
     t.integer  "level"
-    t.integer  "XP"
+    t.integer  "xp"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer  "user_id"
@@ -26,7 +26,7 @@ ActiveRecord::Schema.define(version: 20170615205745) do
 
   create_table "events", force: :cascade do |t|
     t.string   "name"
-    t.integer  "XP"
+    t.integer  "xp"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer  "planner_id"
