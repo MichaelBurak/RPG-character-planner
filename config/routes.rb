@@ -2,8 +2,7 @@ Rails.application.routes.draw do
 
   root 'welcome#home'
   resources :characters do
-    resources :planners, except: (:create)
-    post '/planners/:id(.:format)', to: 'planners#create', as: 'create_planner'
+    resources :planners, only: %i[create show]
 
   end
 

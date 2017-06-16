@@ -17,25 +17,19 @@ class CharactersController < ApplicationController
   def create
     @character = Character.new(character_params)
     @character.user_id = current_user.id
-    respond_to do |format|
       if @character.save
-        format.html { redirect_to @character, notice: 'Character was successfully created.' }
-        format.json { render :show, status: :created, location: @character }
+        redirect_to @character, notice: 'Character was successfully created.'
       else
-        format.html { render :new }
-        format.json { render json: @character.errors, status: :unprocessable_entity }
+        render :new
+        #add validations
       end
     end
-  end
 
   def update
-    respond_to do |format|
       if @character.update(character_params)
-        format.html { redirect_to @character, notice: 'Character was successfully updated.' }
-        format.json { render :show, status: :ok, location: @character }
+        redirect_to @character, notice: 'Character was successfully updated.'
       else
-        format.html { render :edit }
-        format.json { render json: @character.errors, status: :unprocessable_entity }
+        render :edit
       end
     end
   end
