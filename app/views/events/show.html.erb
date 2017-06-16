@@ -1,6 +1,6 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Character: <%= @event_character.name %></h1>
+<h1>Character: <%= link_to "#{@event_character.name}", character_path(@event_character) %></h1>
 <h1>Event: <%= @event.name %></h1>
 <h2> Event XP: <%= @event.xp%></h2>
 

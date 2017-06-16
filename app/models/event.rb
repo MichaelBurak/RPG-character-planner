@@ -10,7 +10,7 @@ class Event < ApplicationRecord
   def treasures_attributes=(treasures_attributes)
     treasures_attributes.delete_if { |_i, h| h.any? { |_k, v| v.empty? } }
     treasures_attributes.values.each do |treasure_attributes|
-      self.treasures.build(treasure_attributes)
+      treasures.build(treasure_attributes)
     end
   end
 end

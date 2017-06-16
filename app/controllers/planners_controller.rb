@@ -17,7 +17,7 @@ class PlannersController < ApplicationController
     @planner = Planner.new(:character_id => @character.id, :user_id => @user.id)
     respond_to do |format|
       if @planner.save
-        format.html { redirect_to character_planner_path(@planner), notice: 'Planner was successfully created.' }
+        format.html { redirect_to character_planner_path(@character, @planner), notice: 'Planner was successfully created.' }
         format.json { render :show, status: :created, location: @planner }
       else
         format.html { render :new }
