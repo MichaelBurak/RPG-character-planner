@@ -22,9 +22,9 @@ class EventsController < ApplicationController
   def create
     @planner = Planner.find(params[:planner_id])
     @event = @planner.events.new(event_params)
-    raise.params.inspect
     respond_to do |format|
       if @event.save
+        raise.params.inspect
         format.html { redirect_to planner_event_path(@planner, @event), notice: 'Event was successfully created.' }
         format.json { render :show, status: :created, location: @event }
       else
