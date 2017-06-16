@@ -13,9 +13,9 @@
     <% @characters.each do |character| %>
     <%= render 'character', character: character %>
       <tr>
-        <td><%= link_to 'Show', character %></td>
-        <td><%= link_to 'Edit', edit_character_path(character) %></td>
-        <td><%= link_to 'Destroy', character, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Show the Character', character %></td>
+        <td><%= link_to 'Edit Character', edit_character_path(character) %></td>
+        <td><%= link_to 'Delete Character', character, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>

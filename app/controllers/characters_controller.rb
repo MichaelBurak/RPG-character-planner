@@ -32,7 +32,6 @@ class CharactersController < ApplicationController
         render :edit
       end
     end
-  end
 
   def destroy
     @character.destroy
