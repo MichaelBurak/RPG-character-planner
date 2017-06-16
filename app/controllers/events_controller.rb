@@ -22,14 +22,10 @@ class EventsController < ApplicationController
   def create
     @planner = Planner.find(params[:planner_id])
     @event = @planner.events.new(event_params)
-    respond_to do |format|
       if @event.save
         format.html { redirect_to planner_event_path(@planner, @event), notice: 'Event was successfully created.' }
-        format.json { render :show, status: :created, location: @event }
       else
-        format.html { render :new }
-        format.json { render json: @event.errors, status: :unprocessable_entity }
-      end
+        render :new
     end
   end
 
@@ -37,20 +33,17 @@ class EventsController < ApplicationController
     @planner = Planner.find(params[:planner_id])
     respond_to do |format|
       if @event.update(event_params)
-        format.html { redirect_to planner_event_path(@planner, @event), notice: 'Event was successfully updated.' }
-        format.json { render :show, status: :ok, location: @event }
+        redirect_to planner_event_path(@planner, @event), notice: 'Event was successfully updated.' }
       else
-        format.html { render :edit }
-        format.json { render json: @event.errors, status: :unprocessable_entity }
-      end
+        render :edit
     end
   end
 
   def destroy
-    @event.destroy
-    respond_to do |format|
-      format.html { redirect_to events_url, notice: 'Event was successfully destroyed.' }
-      format.json { head :no_content }
+    if @event.destroy
+      redirect_to events_url, notice: 'Event was successfully destroyed.'
+    else
+      render root_path
     end
   end
 

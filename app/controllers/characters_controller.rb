@@ -22,7 +22,6 @@ class CharactersController < ApplicationController
         redirect_to @character, notice: 'Character was successfully created.'
       else
         render :new
-        #add validations
       end
     end
 
@@ -35,15 +34,15 @@ class CharactersController < ApplicationController
     end
 
   def destroy
-    @character.destroy
-    respond_to do |format|
-      format.html { redirect_to characters_url, notice: 'Character was successfully destroyed.' }
-      format.json { head :no_content }
+    if @character.destroy
+      redirect_to characters_url, notice: 'Character was successfully destroyed.' }
+    else
+      render: root_path
     end
   end
 
   def experience
-    @character.total_xp
+    @character.add_event_xp
     redirect_to @character
   end
 

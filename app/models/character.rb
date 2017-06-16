@@ -3,7 +3,7 @@ class Character < ApplicationRecord
   has_one :planner
   validates :xp, numericality: true
 
-  def total_xp
+  def add_event_xp
     self.xp += planner.events.last.xp
     until self.xp < 99
       level_up
