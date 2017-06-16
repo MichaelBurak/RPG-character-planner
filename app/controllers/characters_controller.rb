@@ -1,6 +1,6 @@
 class CharactersController < ApplicationController
-  before_action :set_character, only: [:show, :edit, :update, :destroy]
-  before_action :confirm_user, only: [:edit, :update, :destroy, :experience]
+  before_action :set_character, only: [:show, :edit, :update, :destroy, :experience]
+  before_action :confirm_user, only: [:edit, :update, :destroy]
 
   def index
     @characters = Character.all
@@ -43,7 +43,6 @@ class CharactersController < ApplicationController
   end
 
   def experience
-    @character = Character.find(params[:id])
     @character.total_xp
     redirect_to @character
   end
