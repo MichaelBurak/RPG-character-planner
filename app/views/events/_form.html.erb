@@ -18,7 +18,7 @@
     <ul>
       Add Treasures
     <%= f.fields_for :treasures do |treasure_builder| %>
-          <li><%= treasure_builder.label :name %></li>
+          <li><%= treasure_builder.label :name %>
           <%= treasure_builder.text_field :name %></li>
           <li><%= treasure_builder.label :gold_value %>
           <%= treasure_builder.number_field :gold_value %></li>
