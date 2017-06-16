@@ -35,9 +35,9 @@ class CharactersController < ApplicationController
 
   def destroy
     if @character.destroy
-      redirect_to characters_url, notice: 'Character was successfully destroyed.' }
+      redirect_to characters_url, notice: 'Character was successfully destroyed.'
     else
-      render: root_path
+      render root_path
     end
   end
 
