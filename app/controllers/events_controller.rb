@@ -31,9 +31,8 @@ class EventsController < ApplicationController
 
   def update
     @planner = Planner.find(params[:planner_id])
-    respond_to do |format|
       if @event.update(event_params)
-        redirect_to planner_event_path(@planner, @event), notice: 'Event was successfully updated.' }
+        redirect_to planner_event_path(@planner, @event), notice: 'Event was successfully updated.'
       else
         render :edit
     end
@@ -46,6 +45,10 @@ class EventsController < ApplicationController
       render root_path
     end
   end
+
+    def highest_xp
+     @best_events = Event.highest_exp_events
+    end
 
   private
 

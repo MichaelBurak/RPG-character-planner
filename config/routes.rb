@@ -10,6 +10,8 @@ Rails.application.routes.draw do
     resources :events
   end
 
+  get 'events/highest_xp', to: 'events#highest_xp', as: 'highest_xp_events'
+
   devise_for :users
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
