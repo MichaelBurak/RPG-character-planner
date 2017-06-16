@@ -4,6 +4,6 @@
 <h1>Event: <%= @event.name %></h1>
 <h2> Event XP: <%= @event.xp%></h2>
 
-<%= link_to "Total XP", character_experience_path(@event_character) %>
+<%= link_to 'Total XP', character_experience_path(@event_character) %>
 <%= link_to 'Edit', edit_planner_event_path(@planner, @event) %> |
 <%= link_to 'Back', character_planner_path(@event_character, @planner) %>

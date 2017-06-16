@@ -5,8 +5,7 @@ class CharactersController < ApplicationController
     @characters = Character.all
   end
 
-  def show
-  end
+  def show() end
 
   def new
     @character = Character.new
