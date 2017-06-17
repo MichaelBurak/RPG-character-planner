@@ -1,4 +1,5 @@
 class PlannersController < ApplicationController
+
   def show
     @character = Character.find(params[:character_id])
     @planner = @character.planner

@@ -7,11 +7,12 @@ Rails.application.routes.draw do
 
   get 'characters/:id(.:format)/experience', to: 'characters#experience', as: 'character_experience'
   resources :planners, only: %i[] do
-    resources :events
+    resources :events, except: [:index]
   end
 
   get 'events/highest_xp', to: 'events#highest_xp', as: 'highest_xp_events'
 
-  devise_for :users
+  #devise_for :users
+  devise_for :users, :controllers => { :omniauth_callbacks => "callbacks" }
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

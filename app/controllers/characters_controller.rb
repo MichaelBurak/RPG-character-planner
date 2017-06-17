@@ -12,8 +12,7 @@ class CharactersController < ApplicationController
     @character = Character.new
   end
 
-  def edit
-  end
+  def edit() end
 
   def create
     @character = Character.new(character_params)
