@@ -8,6 +8,7 @@ class EventsController < ApplicationController
   def show
     @planner = Planner.find(params[:planner_id])
     @event_character = Character.find(@planner.character_id)
+    @treasure = @event.treasures.first
   end
 
   def new
