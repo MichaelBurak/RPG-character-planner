@@ -17,16 +17,14 @@
 
     <ul>
       Add Treasures
-    <%= f.fields_for :treasures do |treasure_builder| %>
-      <li><%=treasure_builder.label :name %>
-          <%= treasure_builder.text_field :name %>   </li>
-          <li><%= treasure_builder.label :name %></li>
-          <%= treasure_builder.text_field :name %></li>
+      <%= f.fields_for :treasures, event.treasures.build do |treasure_builder| %>
+          <li><%= treasure_builder.label :name %>
+            <%= treasure_builder.text_field :name %></li>
           <li><%= treasure_builder.label :gold_value %>
-          <%= treasure_builder.number_field :gold_value %> </li>
-          <li><%= treasure_builder.label :type %>
-          <%=treasure_builder.text_field :type %> </li>
-          <% end %>
+            <%= treasure_builder.number_field :gold_value %> </li>
+          <li><%= treasure_builder.label :kind %>
+            <%=treasure_builder.text_field :kind %> </li>
+      <% end %>
     </ul>
   <div class="actions">
     <%= f.submit %>

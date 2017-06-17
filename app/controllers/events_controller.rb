@@ -62,6 +62,6 @@ class EventsController < ApplicationController
                                     :xp,
                                     :planner_id,
                                     treasures_attributes:
-                                        %i[id name gold_value type])
+                                        %i[id name gold_value kind])
     end
 end

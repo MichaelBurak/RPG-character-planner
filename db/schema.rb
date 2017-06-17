@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170616162347) do
+ActiveRecord::Schema.define(version: 20170617150225) do
 
   create_table "characters", force: :cascade do |t|
     t.string   "name"
@@ -40,12 +40,10 @@ ActiveRecord::Schema.define(version: 20170616162347) do
   end
 
   create_table "treasures", force: :cascade do |t|
-    t.string   "name"
-    t.integer  "gold_value"
-    t.string   "type"
-    t.integer  "event_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.string  "name"
+    t.integer "gold_value"
+    t.string  "kind"
+    t.integer "event_id"
   end
 
   create_table "users", force: :cascade do |t|

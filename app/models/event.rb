@@ -1,6 +1,6 @@
 class Event < ApplicationRecord
   belongs_to :planner
-  has_many :treasures
+  has_many :treasures, :inverse_of => :event
   validates :xp, numericality: true
 
   scope :highest_exp_events, (->() {all.order(xp: :desc).limit(3)})
