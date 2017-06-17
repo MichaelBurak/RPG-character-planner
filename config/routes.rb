@@ -6,6 +6,8 @@ Rails.application.routes.draw do
   end
 
   get 'characters/:id(.:format)/experience', to: 'characters#experience', as: 'character_experience'
+  get 'characters/:id(.:format)/attribute_selection', to: 'characters#attribute_selection', as: 'character_attributes'
+  patch 'characters/:id(.:format)/levelup', to: 'characters#levelup', as: 'character_levelupdate'
   resources :planners, only: %i[] do
     resources :events, except: [:index]
   end

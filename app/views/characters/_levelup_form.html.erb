@@ -1,4 +1,4 @@
-<%= form_for(character) do |f| %>
+<%= form_for character, :url => { :action => "update" } do |f| %>
     <% if character.errors.any? %>
         <div id="error_explanation">
           <h2><%= pluralize(character.errors.count, "error") %> prohibited this character from being saved:</h2>
@@ -10,8 +10,7 @@
           </ul>
         </div>
     <% end %>
-    <%= f.label :name %>
-    <%= f.text_field :name %>
+    <p>Name: <%= character.name %></p>
     <%= f.label :subtle %>
     <%= f.number_field :subtle %>
     <%= f.label :powerful %>
