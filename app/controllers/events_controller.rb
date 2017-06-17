@@ -1,24 +1,19 @@
 class EventsController < ApplicationController
   before_action :set_event, only: [:show, :edit, :update, :destroy]
-
+  before_action :set_planner, only: %i[show new edit create update destroy]
 
   def show
-    @planner = Planner.find(params[:planner_id])
     @event_character = Character.find(@planner.character_id)
     @treasure = @event.treasures.first
   end
 
   def new
-    @planner = Planner.find(params[:planner_id])
     @event = Event.new
   end
 
-  def edit
-    @planner = Planner.find(params[:planner_id])
-  end
+  def edit() end
 
   def create
-    @planner = Planner.find(params[:planner_id])
     @event = @planner.events.new(event_params)
       if @event.save
         redirect_to planner_event_path(@planner, @event), notice: 'Event was successfully created.'
@@ -28,7 +23,6 @@ class EventsController < ApplicationController
   end
 
   def update
-    @planner = Planner.find(params[:planner_id])
       if @event.update(event_params)
         redirect_to planner_event_path(@planner, @event), notice: 'Event was successfully updated.'
       else
@@ -37,7 +31,6 @@ class EventsController < ApplicationController
   end
 
   def destroy
-    @planner = Planner.find(params[:planner_id])
     @event_character = Character.find(@planner.character_id)
     if @event.destroy
       redirect_to character_planner_path(@event_character,@planner), notice: 'Event was successfully destroyed.'
@@ -56,6 +49,9 @@ class EventsController < ApplicationController
       @event = Event.find(params[:id])
     end
 
+    def set_planner
+      @planner = Planner.find(params[:planner_id])
+    end
 
     def event_params
       params.require(:event).permit(:name,

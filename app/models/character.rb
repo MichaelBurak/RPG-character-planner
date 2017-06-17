@@ -9,7 +9,6 @@ class Character < ApplicationRecord
       level_up
     end
     self.save
-    end
   end
 
   def level_up
