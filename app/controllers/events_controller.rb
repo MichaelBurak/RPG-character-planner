@@ -40,8 +40,10 @@ class EventsController < ApplicationController
   end
 
   def destroy
+    @planner = Planner.find(params[:planner_id])
+    @event_character = Character.find(@planner.character_id)
     if @event.destroy
-      redirect_to events_url, notice: 'Event was successfully destroyed.'
+      redirect_to character_planner_path(@event_character,@planner), notice: 'Event was successfully destroyed.'
     else
       render root_path
     end

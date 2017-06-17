@@ -4,12 +4,13 @@
 <h1>Event: <%= @event.name %></h1>
 <h2> Event XP: <%= @event.xp%></h2>
 
-<p>Treasure
+<% if @treasure %> <p>Treasure
 Name: <%= @treasure.name %></p>
 Value: <p><%=@treasure.gold_value%></p>
 Kind: <p><%=@treasure.kind%></p>
-
-<%= link_to 'Add Event XP To Character', character_experience_path(@event_character) %>
+<% end %>
+<%= link_to 'Add Event XP To Character', character_experience_path(@event_character) %> |
 <%= link_to 'Edit', edit_planner_event_path(@planner, @event) %> |
-<%= link_to 'Back', character_planner_path(@event_character, @planner) %>
+<%= link_to 'Delete Event', planner_event_path(@planner, @event), method: :delete, data: { confirm: 'Are you sure?' } %></p>
+<%= link_to 'Back', character_planner_path(@event_character, @planner) %> |
 <%= link_to 'See The Highest XP Yielding Events', highest_xp_events_path %>
