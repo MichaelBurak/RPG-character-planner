@@ -1,5 +1,5 @@
 class CharactersController < ApplicationController
-  before_action :set_character, only: [:show, :edit, :update, :destroy, :experience, :attribute_selection, :levelup]
+  before_action :set_character, only: [:show, :edit, :update, :destroy, :experience, :attribute_selection, :level_up]
   before_action :confirm_user, only: [:update, :destroy]
 
   def index
@@ -43,7 +43,7 @@ class CharactersController < ApplicationController
   def experience
     @character.add_event_xp
     if @character.level_up
-      redirect_to character_levelupdate_path
+      redirect_to character_attributes_path
     else redirect_to @character
       end
     end
@@ -52,16 +52,13 @@ class CharactersController < ApplicationController
 
     end
 
-
-
-      #if @character.update(character_params)
-         #@validate_level = true
-        #redirect_to @character, notice: 'Character was successfully updated.'
-      #else
-        #render :experience
-      #end
-    #end
-    #end
+    def level_up
+      if @character.update(character_params)
+        redirect_to @character, notice: 'Character was successfully updated.'
+      else
+        render :experience
+      end
+    end
 
   private
     def set_character

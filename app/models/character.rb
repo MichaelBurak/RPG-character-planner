@@ -2,7 +2,7 @@ class Character < ApplicationRecord
   belongs_to :user
   has_one :planner
   validates :xp, numericality: true
-  validates :validate_leveling_up, presence: true, if: @validate_level
+  validate :validate_leveling_up
 
   def add_event_xp
     self.xp += planner.events.last.xp
@@ -26,16 +26,14 @@ class Character < ApplicationRecord
 
   def validate_leveling_up
     subtle = self.changes[:subtle]
-    #raise.params.inspect
     powerful = self.changes[:powerful]
     resistant = self.changes[:resistant]
-
     subtle_change = subtle[1] - subtle[0]
     powerful_change = powerful[1] - powerful[0]
     resistant_change = resistant[1] - resistant[0]
 
     if subtle_change + powerful_change + resistant_change > 30
-      self.errors.add("Can't increase by more than 30")
+      self.errors.add(:level, "Can't increase attributes by more than 30")
     end
 end
 end
