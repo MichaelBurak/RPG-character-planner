@@ -1,9 +1,7 @@
 class Character < ApplicationRecord
   belongs_to :user
   has_one :planner
-  validates :xp, :subtle, :powerful, :resistant, :level, :numericality => { :greater_than_or_equal_to => 0 }
-  validates :name, uniqueness: true
-  validates :name, :xp, :subtle, :powerful, :resistant, :level, presence: true
+  validates :xp, numericality: true
 
   def add_event_xp
     self.xp += planner.events.last.xp
