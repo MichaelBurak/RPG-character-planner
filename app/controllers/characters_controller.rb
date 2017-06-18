@@ -13,7 +13,11 @@ class CharactersController < ApplicationController
     @character = Character.new
   end
 
-  def edit() end
+  def edit
+    if @character.just_leveled_up?
+      @character.update_attribute(:just_leveled_up, nil)
+    end
+  end
 
   def create
     @character = Character.new(character_params)

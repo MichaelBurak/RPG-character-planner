@@ -8,7 +8,7 @@ class Character < ApplicationRecord
     self.xp += planner.events.last.xp
     until self.xp < 99
       level_up
-      self.just_leveled_up = true
+      self.update_attribute(:just_leveled_up, true)
     end
     self.save
   end
@@ -29,18 +29,16 @@ class Character < ApplicationRecord
       total += subtle_change
     end
     if self.powerful_changed?
-    powerful_change = powerful[1] - powerful[0]
+      powerful_change = powerful[1] - powerful[0]
       total += powerful_change
     end
     if self.resistant_changed?
-    resistant_change = resistant[1] - resistant[0]
+      resistant_change = resistant[1] - resistant[0]
       total += resistant_change
     end
     if total > 30
       self.errors.add(:level, "Can't increase attributes by more than 30")
     end
-    self.update_attribute(:just_leveled_up, nil)
-      binding.pry
-    end
+  end
 
   end
