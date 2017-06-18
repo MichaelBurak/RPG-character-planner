@@ -1,12 +1,13 @@
 class CharactersController < ApplicationController
   before_action :set_character, only: [:show, :edit, :update, :destroy, :experience, :attribute_selection, :level_up]
-  before_action :confirm_user, only: [:update, :destroy]
+  #before_action :confirm_user, only: [:update, :destroy]
 
   def index
     @characters = Character.all
   end
 
-  def show() end
+  def show
+  end
 
   def new
     @character = Character.new
@@ -67,7 +68,7 @@ class CharactersController < ApplicationController
 
     def character_params
       params.require(:character).permit(:name, :subtle, :powerful, :resistant, :level,
-      :xp, :user_id)
+      :xp, :user_id, :just_leveled_up)
     end
 
     def confirm_user

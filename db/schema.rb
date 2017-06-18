@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170617181658) do
+ActiveRecord::Schema.define(version: 20170618125958) do
 
   create_table "characters", force: :cascade do |t|
     t.string   "name"
@@ -19,9 +19,10 @@ ActiveRecord::Schema.define(version: 20170617181658) do
     t.integer  "resistant"
     t.integer  "level"
     t.integer  "xp"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
     t.integer  "user_id"
+    t.boolean  "just_leveled_up"
   end
 
   create_table "events", force: :cascade do |t|
