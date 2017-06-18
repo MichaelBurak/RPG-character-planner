@@ -38,8 +38,9 @@ class Character < ApplicationRecord
     end
     if total > 30
       self.errors.add(:level, "Can't increase attributes by more than 30")
-      self.update_attribute(:just_leveled_up, nil)
     end
-  end
+    self.update_attribute(:just_leveled_up, nil)
+      binding.pry
+    end
 
   end
