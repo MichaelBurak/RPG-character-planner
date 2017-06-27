@@ -9,7 +9,7 @@ Name: <%= @treasure.name %></p>
 Value: <p><%=@treasure.gold_value%></p>
 Kind: <p><%=@treasure.kind%></p>
 <% end %>
-<%= link_to 'Add Event XP To Character', character_experience_path(@event_character) %> |
+<%= link_to 'Add Event XP To Character', {controller: 'characters', action: 'experience', id: @event_character.id, event: @event.id} %> |
 <%= link_to 'Edit', edit_planner_event_path(@planner, @event) %> |
 <%= link_to 'Delete Event', planner_event_path(@planner, @event), method: :delete, data: { confirm: 'Are you sure?' } %></p>
 <%= link_to 'Back', character_planner_path(@event_character, @planner) %> |

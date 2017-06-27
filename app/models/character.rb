@@ -4,13 +4,13 @@ class Character < ApplicationRecord
   validates :xp, numericality: true
   validate :validate_leveling_up, :on => :update, :if => :just_leveled_up?
 
-  def add_event_xp
-    self.xp += planner.events.last.xp
+  def add_event_xp(event)
+    self.xp += event.xp
     until self.xp < 99
       level_up
-      self.update_attribute(:just_leveled_up, true)
+      update_attribute(:just_leveled_up, true)
     end
-    self.save
+    save
   end
 
   def level_up
