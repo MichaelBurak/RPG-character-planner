@@ -19,10 +19,10 @@ ActiveRecord::Schema.define(version: 20170710233255) do
     t.integer  "resistant"
     t.integer  "level"
     t.integer  "xp"
-    t.datetime "created_at",       null: false
-    t.datetime "updated_at",       null: false
+    t.datetime "created_at",                   null: false
+    t.datetime "updated_at",                   null: false
     t.integer  "user_id"
-    t.integer  "spendable_points"
+    t.integer  "spendable_points", default: 0, null: false
   end
 
   create_table "events", force: :cascade do |t|

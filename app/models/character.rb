@@ -15,6 +15,7 @@ class Character < ApplicationRecord
   def level_up
     self.level += 1
     self.xp -= 100
+    self.spendable_points += 30
   end
 
 
@@ -35,9 +36,15 @@ class Character < ApplicationRecord
       resistant_change = resistant[1] - resistant[0]
       total += resistant_change
     end
-    if total > 30
-      self.errors.add(:level, "Can't increase attributes by more than 30")
+    if total <= self.spendable_points
+      self.spendable_points -= total
+    else
+      self.errors.add(:base, "Can't increase attributes by more than 30 per level added")
     end
+  end
+
+  def just_leveled_up?
+    spendable_points > 0
   end
 
   end

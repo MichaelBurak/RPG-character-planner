@@ -48,7 +48,7 @@ class CharactersController < ApplicationController
   def experience
     event = Event.find(params[:event])
     if @character.add_event_xp(event)
-      if @character.just_leveled_up
+      if @character.just_leveled_up?
       redirect_to character_attributes_path
     else
       redirect_to @character
