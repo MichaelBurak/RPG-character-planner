@@ -47,12 +47,13 @@ class CharactersController < ApplicationController
 
   def experience
     event = Event.find(params[:event])
-    @character.add_event_xp(event)
-    if @character.level_up
+    if @character.add_event_xp(event)
+      if @character.just_leveled_up
       redirect_to character_attributes_path
     else
       redirect_to @character
     end
+  end
   end
 
     def attribute_selection
@@ -63,7 +64,7 @@ class CharactersController < ApplicationController
       if @character.update(character_params)
         redirect_to @character, notice: 'Character was successfully updated.'
       else
-        render :experience
+        render 'attribute_selection'
       end
     end
 

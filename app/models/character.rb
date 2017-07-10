@@ -8,7 +8,6 @@ class Character < ApplicationRecord
     self.xp += event.xp
     until self.xp < 99
       level_up
-      update_attribute(:just_leveled_up, true)
     end
     save
   end
