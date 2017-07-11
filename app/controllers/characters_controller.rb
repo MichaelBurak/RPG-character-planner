@@ -57,7 +57,7 @@ class CharactersController < ApplicationController
   end
 
     def attribute_selection
-
+      @character.attribute_ceiling
     end
 
     def level_up

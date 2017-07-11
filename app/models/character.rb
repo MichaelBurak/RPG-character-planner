@@ -43,6 +43,10 @@ class Character < ApplicationRecord
     end
   end
 
+  def attribute_ceiling
+    self.resistant + self.subtle + self.powerful + self.spendable_points
+  end
+
   def just_leveled_up?
     spendable_points > 0
   end

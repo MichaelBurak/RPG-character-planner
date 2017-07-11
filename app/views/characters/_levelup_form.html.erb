@@ -18,7 +18,7 @@
     <%= f.label :resistant %>
     <%= f.number_field :resistant %>
     <h2>Note: Leveling up only gives you 30 additional attribute points to work with!</h2>
-    <h2> You currently have <%= "#{character.spendable_points}" %> points to spend</h2>
+    <h2> You currently can have a total of <%= "#{character.attribute_ceiling}" %> points in attributes</h2>
     <div class="actions">
       <%= f.submit %>
     </div>

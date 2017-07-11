@@ -8,12 +8,8 @@ To do list:
 ---convert treasure to singular association
 
 -implement pool system for xp
-***persist character errors
-***display character errors for leveling up
-*figure out why it’s redirecting to level page when failing 
-to level instead of edit
-*change validation method to persist just_leveled_up = nil
-after denying leveling up with inappropriate attributes
-*allow for multiple leveling at once
-
-***change adding event xp from last event to associated event
+*create attr accessor in controller 
+*set variable during flow for leveling up 
+*pass variable into form as a hidden field 
+*pass from first controller into the next as a param 
+*(flow) param>hidden field>param>accessor>validation 
