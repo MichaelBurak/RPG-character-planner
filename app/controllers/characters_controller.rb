@@ -1,6 +1,5 @@
 class CharactersController < ApplicationController
   before_action :set_character, only: [:show, :edit, :update, :destroy, :experience, :attribute_selection, :level_up]
-  before_action :confirm_user, only: [:update, :destroy]
 
   def index
     @characters = Character.all
@@ -76,12 +75,6 @@ class CharactersController < ApplicationController
     def character_params
       params.require(:character).permit(:name, :subtle, :powerful, :resistant, :level,
       :xp, :user_id, :just_leveled_up)
-    end
-
-    def confirm_user
-      if current_user.id != @character.user_id
-        redirect_to root_path
-      end
     end
 
 end

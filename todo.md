@@ -4,12 +4,13 @@ To do list:
 *planner has user id 
 *event has planned with user id 
 *character has user_id
+*use pundit 
 
 ---convert treasure to singular association
 
 -implement pool system for xp
+*pass from first controller into the next as a param
+*pass variable into form as a hidden field
 *create attr accessor in controller 
-*set variable during flow for leveling up 
-*pass variable into form as a hidden field 
-*pass from first controller into the next as a param 
-*(flow) param>hidden field>param>accessor>validation 
+*set variable during flow for leveling up   
+*(flow) param>hidden field>param>accessor>validation
