@@ -1,5 +1,6 @@
 class CharactersController < ApplicationController
-  before_action :set_character, only: [:show, :edit, :update, :destroy, :experience, :attribute_selection, :level_up]
+  before_action :set_character, only: %i[show edit update destroy experience attribute_selection level_up]
+  before_action :perform_authorization, only: %i[attribute_selection destroy experience level_up update]
 
   def index
     @characters = Character.all
@@ -29,7 +30,6 @@ class CharactersController < ApplicationController
     end
 
   def update
-      authorize @character
       if @character.update(character_params)
         redirect_to @character, notice: 'Character was successfully updated.'
       else
@@ -38,7 +38,6 @@ class CharactersController < ApplicationController
     end
 
   def destroy
-    authorize @character
     if @character.destroy
       redirect_to characters_url, notice: 'Character was successfully destroyed.'
     else
@@ -77,6 +76,10 @@ class CharactersController < ApplicationController
     def character_params
       params.require(:character).permit(:name, :subtle, :powerful, :resistant, :level,
       :xp, :user_id, :just_leveled_up)
+    end
+
+    def perform_authorization
+      authorize @character
     end
 
 end

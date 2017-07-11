@@ -20,3 +20,4 @@ class CharacterPolicy < ApplicationPolicy
     record.try(:user) == user
   end
 end
+
