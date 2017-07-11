@@ -29,6 +29,7 @@ class CharactersController < ApplicationController
     end
 
   def update
+      authorize @character
       if @character.update(character_params)
         redirect_to @character, notice: 'Character was successfully updated.'
       else
@@ -37,6 +38,7 @@ class CharactersController < ApplicationController
     end
 
   def destroy
+    authorize @character
     if @character.destroy
       redirect_to characters_url, notice: 'Character was successfully destroyed.'
     else

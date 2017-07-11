@@ -14,3 +14,5 @@ To do list:
 *create attr accessor in controller 
 *set variable during flow for leveling up   
 *(flow) param>hidden field>param>accessor>validation
+
+*add delete button to character show page
