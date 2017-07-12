@@ -1,6 +1,7 @@
 class EventsController < ApplicationController
-  before_action :set_event, only: [:show, :edit, :update, :destroy]
+  before_action :set_event, only: %i[show edit update destroy]
   before_action :set_planner, only: %i[show new edit create update destroy]
+  before_action :perform_authorization, only: %i[show new edit create update destroy]
 
   def show
     @event_character = Character.find(@planner.character_id)
@@ -60,4 +61,9 @@ class EventsController < ApplicationController
                                     treasures_attributes:
                                         %i[id name gold_value kind])
     end
+
+  def perform_authorization
+    authorize @planner
+  end
+
 end

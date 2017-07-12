@@ -1,8 +1,9 @@
 class PlannersController < ApplicationController
+  before_action :set_character, only: [:show]
+  before_action :set_planner, only: [:show]
 
   def show
-    @character = Character.find(params[:character_id])
-    @planner = @character.planner
+    authorize @planner
     @events = @planner.events
   end
 
@@ -16,5 +17,15 @@ class PlannersController < ApplicationController
         render :new
     end
     end
+
+  private
+
+  def set_character
+    @character = Character.find(params[:character_id])
+  end
+
+  def set_planner
+    @planner = @character.planner
+  end
 
 end

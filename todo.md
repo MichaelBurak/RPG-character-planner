@@ -16,3 +16,5 @@ To do list:
 *(flow) param>hidden field>param>accessor>validation
 
 *add delete button to character show page
+
+*fix event authorization
