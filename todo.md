@@ -1,10 +1,4 @@
 To do list: 
----locking off routes based on current user 
-(build single method for all controllers?)
-*planner has user id 
-*event has planned with user id 
-*character has user_id
-*use pundit 
 
 ---convert treasure to singular association
 
@@ -14,7 +8,3 @@ To do list:
 *create attr accessor in controller 
 *set variable during flow for leveling up   
 *(flow) param>hidden field>param>accessor>validation
-
-*add delete button to character show page
-
-*fix event authorization
