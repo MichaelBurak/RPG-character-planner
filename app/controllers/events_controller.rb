@@ -5,14 +5,17 @@ class EventsController < ApplicationController
 
   def show
     @event_character = Character.find(@planner.character_id)
-    @treasure = @event.treasures.first
+    @treasures = @event.treasures.all
   end
 
   def new
     @event = Event.new
+    @event.treasures.build
   end
 
-  def edit() end
+  def edit
+    @event.treasures.build
+  end
 
   def create
     @event = @planner.events.new(event_params)

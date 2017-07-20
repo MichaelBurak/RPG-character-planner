@@ -16,8 +16,8 @@
     <%= f.number_field :xp %>
 
     <ul>
-      Add Treasures
-      <%= f.fields_for :treasures, event.treasures.build do |treasure_builder| %>
+      Treasures
+      <%= f.fields_for :treasures do |treasure_builder| %>
           <li><%= treasure_builder.label :name %>
             <%= treasure_builder.text_field :name %></li>
           <li><%= treasure_builder.label :gold_value %>

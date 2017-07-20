@@ -2,7 +2,7 @@ class Character < ApplicationRecord
   belongs_to :user
   has_one :planner
   validates :xp, numericality: true
-  validate :validate_leveling_up, :on => :update, :if => :just_leveled_up?
+  validate :validate_leveling_up, :on => :update, :if => Proc.new { |c| c.just_leveled_up? || !c.regular_update? }
 
   def add_event_xp(event)
     self.xp += event.xp
@@ -51,4 +51,4 @@ class Character < ApplicationRecord
     spendable_points > 0
   end
 
-  end
+end
