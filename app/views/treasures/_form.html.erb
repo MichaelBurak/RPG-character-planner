@@ -1,0 +1,10 @@
+<%= form_for [planner, event, treasure] do |f| %>
+
+    <li><%= f.label :name %>
+      <%= f.text_field :name %></li>
+    <li><%= f.label :gold_value %>
+      <%= f.number_field :gold_value %> </li>
+    <li><%= f.label :kind %>
+      <%=f.text_field :kind %> </li>
+    <li><%= f.submit %> </li>
+<% end %>
