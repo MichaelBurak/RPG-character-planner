@@ -58,3 +58,5 @@ gem 'devise'
 gem 'omniauth-github'
 
 gem 'pundit'
+
+gem 'rails-erd', require: false, group: :development

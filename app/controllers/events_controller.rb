@@ -14,7 +14,6 @@ class EventsController < ApplicationController
   end
 
   def edit
-    @event.treasures.build
   end
 
   def create

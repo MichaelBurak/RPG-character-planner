@@ -15,17 +15,19 @@
     <%= f.label :xp %>
     <%= f.number_field :xp %>
 
-    <ul>
-      Treasures
-      <%= f.fields_for :treasures do |treasure_builder| %>
-          <li><%= treasure_builder.label :name %>
-            <%= treasure_builder.text_field :name %></li>
-          <li><%= treasure_builder.label :gold_value %>
-            <%= treasure_builder.number_field :gold_value %> </li>
-          <li><%= treasure_builder.label :kind %>
-            <%=treasure_builder.text_field :kind %> </li>
-      <% end %>
-    </ul>
+    <% unless params[:action] == 'edit' %>
+      <ul>
+        Treasures
+        <%= f.fields_for :treasures do |treasure_builder| %>
+            <li><%= treasure_builder.label :name %>
+              <%= treasure_builder.text_field :name %></li>
+            <li><%= treasure_builder.label :gold_value %>
+              <%= treasure_builder.number_field :gold_value %> </li>
+            <li><%= treasure_builder.label :kind %>
+              <%=treasure_builder.text_field :kind %> </li>
+        <% end %>
+      </ul>
+    <% end %>
   <div class="actions">
     <%= f.submit %>
   </div>
