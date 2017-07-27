@@ -11,7 +11,7 @@ Rails.application.routes.draw do
 
   resources :planners, only: %i[] do
     resources :events, except: [:index] do
-      resources :treasures, only: %i[edit update destroy]
+      resources :treasures, only: %i[new create edit update destroy]
     end
   end
 
