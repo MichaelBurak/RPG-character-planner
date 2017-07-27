@@ -27,6 +27,7 @@ class CharactersController < ApplicationController
     end
 
   def update
+    @character.skip_level_validation = true
       if @character.update(character_params)
         redirect_to @character, notice: 'Character was successfully updated.'
       else

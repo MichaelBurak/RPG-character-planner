@@ -2,7 +2,10 @@ class Character < ApplicationRecord
   belongs_to :user
   has_one :planner
   validates :xp, numericality: true
-  validate :validate_leveling_up, :on => :update, :if => Proc.new { |c| c.just_leveled_up? || !c.regular_update? }
+  validate :validate_leveling_up, :on => :update, if: :just_leveled_up?,
+           unless: :skip_level_validation
+
+  attr_accessor :skip_level_validation
 
   def add_event_xp(event)
     self.xp += event.xp
@@ -20,6 +23,7 @@ class Character < ApplicationRecord
 
 
   def validate_leveling_up
+    binding.pry
     total = 0
     subtle = self.changes[:subtle]
     powerful = self.changes[:powerful]
@@ -50,5 +54,6 @@ class Character < ApplicationRecord
   def just_leveled_up?
     spendable_points > 0
   end
+
 
 end
