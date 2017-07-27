@@ -10,11 +10,13 @@ Value: <p><%= treasure.gold_value%></p>
 Kind: <p><%=treasure.kind%></p>
     <%= link_to 'Edit Treasure', edit_planner_event_treasure_path(@planner, @event, treasure)%>
     <%= link_to 'Delete Treasure', planner_event_treasure_path(@planner, @event, treasure), method: :delete, data: { confirm: 'Are you sure?' } %></p>
+    __________________
 <% end %>
     <% end %>
-<%= link_to 'Add Event XP To Character', {controller: 'characters', action: 'experience', id: @event_character.id, event: @event.id} %> |
+
+<p><%= link_to 'Add Event XP To Character', {controller: 'characters', action: 'experience', id: @event_character.id, event: @event.id} %> |
 <%= link_to 'Add Treasure', new_planner_event_treasure_path(@planner, @event) %> |
 <%= link_to 'Edit', edit_planner_event_path(@planner, @event) %> |
 <%= link_to 'Delete Event', planner_event_path(@planner, @event), method: :delete, data: { confirm: 'Are you sure?' } %></p>
 <%= link_to 'Back', character_planner_path(@event_character, @planner) %> |
-<%= link_to 'See The Highest XP Yielding Events', highest_xp_events_path %>
+<%= link_to 'See The Highest XP Yielding Events', highest_xp_events_path %></p>

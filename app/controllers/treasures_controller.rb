@@ -1,6 +1,7 @@
 class TreasuresController < ApplicationController
-  before_action :set_planner, only: %i[new edit update destroy create]
-  before_action :set_event, only: %i[new edit update destroy create]
+  before_action :set_planner
+  before_action :perform_authorization
+  before_action :set_event
   before_action :set_treasure, only: %i[edit update destroy]
 
   def new
@@ -11,7 +12,6 @@ class TreasuresController < ApplicationController
   @treasure = Treasure.new(treasure_params)
   @treasure.event_id = @event.id
   if @treasure.save
-    binding.pry
     redirect_to planner_event_path(@planner, @event), notice: 'Treasure was successfully added.'
   else
     render :new
@@ -55,6 +55,10 @@ private
 
   def treasure_params
     params.require(:treasure).permit(%i[id name gold_value kind])
+  end
+
+  def perform_authorization
+    authorize @planner
   end
 
   end
