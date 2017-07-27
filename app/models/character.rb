@@ -55,5 +55,4 @@ class Character < ApplicationRecord
     spendable_points > 0
   end
 
-
 end

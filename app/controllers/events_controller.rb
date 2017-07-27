@@ -3,27 +3,28 @@ class EventsController < ApplicationController
   before_action :set_planner, only: %i[show new edit create update destroy]
   before_action :perform_authorization, only: %i[show new edit create update destroy]
 
-  def show
-    @event_character = Character.find(@planner.character_id)
-    @treasures = @event.treasures.all
-  end
-
   def new
     @event = Event.new
     @event.treasures.build
   end
 
+  def create
+    @event = @planner.events.new(event_params)
+    if @event.save
+      redirect_to planner_event_path(@planner, @event), notice: 'Event was successfully created.'
+    else
+      render :new
+    end
+  end
+
+  def show
+    @event_character = Character.find(@planner.character_id)
+    @treasures = @event.treasures.all
+  end
+
   def edit
   end
 
-  def create
-    @event = @planner.events.new(event_params)
-      if @event.save
-        redirect_to planner_event_path(@planner, @event), notice: 'Event was successfully created.'
-      else
-        render :new
-    end
-  end
 
   def update
       if @event.update(event_params)
@@ -42,9 +43,9 @@ class EventsController < ApplicationController
     end
   end
 
-    def highest_xp
-     @best_events = Event.highest_exp_events
-    end
+  def highest_xp
+    @best_events = Event.highest_exp_events
+  end
 
   private
 

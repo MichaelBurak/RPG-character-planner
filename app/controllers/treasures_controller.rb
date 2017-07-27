@@ -18,7 +18,6 @@ class TreasuresController < ApplicationController
     end
   end
 
-
   def edit
   end
 

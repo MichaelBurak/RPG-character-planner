@@ -6,25 +6,26 @@ class CharactersController < ApplicationController
     @characters = Character.all
   end
 
-  def show
-  end
-
   def new
     @character = Character.new
-  end
-
-  def edit()
   end
 
   def create
     @character = Character.new(character_params)
     @character.user_id = current_user.id
-      if @character.save
-        redirect_to @character, notice: 'Character was successfully created.'
-      else
-        render :new
-      end
+    if @character.save
+      redirect_to @character, notice: 'Character was successfully created.'
+    else
+      render :new
     end
+  end
+
+  def show
+  end
+
+  def edit()
+  end
+
 
   def update
     @character.skip_level_validation = true
