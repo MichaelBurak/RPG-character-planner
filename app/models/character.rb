@@ -23,7 +23,6 @@ class Character < ApplicationRecord
 
 
   def validate_leveling_up
-    binding.pry
     total = 0
     subtle = self.changes[:subtle]
     powerful = self.changes[:powerful]

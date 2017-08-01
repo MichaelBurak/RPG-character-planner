@@ -1,5 +1,15 @@
 <%= form_for [planner, event, treasure] do |f| %>
+    <% if treasure.errors.any? %>
+        <div id="error_explanation">
+          <h2><%= pluralize(event.errors.count, "error") %> prohibited this event from being saved:</h2>
 
+          <ul>
+            <% treasure.errors.full_messages.each do |message| %>
+                <li><%= message %></li>
+            <% end %>
+          </ul>
+        </div>
+    <% end %>
     <li><%= f.label :name %>
       <%= f.text_field :name %></li>
     <li><%= f.label :gold_value %>
