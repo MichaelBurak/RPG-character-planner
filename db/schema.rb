@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170710233255) do
+ActiveRecord::Schema.define(version: 20170803180007) do
 
   create_table "characters", force: :cascade do |t|
     t.string   "name"
@@ -19,10 +19,11 @@ ActiveRecord::Schema.define(version: 20170710233255) do
     t.integer  "resistant"
     t.integer  "level"
     t.integer  "xp"
-    t.datetime "created_at",                   null: false
-    t.datetime "updated_at",                   null: false
+    t.datetime "created_at",                     null: false
+    t.datetime "updated_at",                     null: false
     t.integer  "user_id"
-    t.integer  "spendable_points", default: 0, null: false
+    t.integer  "spendable_points",   default: 0, null: false
+    t.integer  "updated_attributes", default: 0, null: false
   end
 
   create_table "events", force: :cascade do |t|
