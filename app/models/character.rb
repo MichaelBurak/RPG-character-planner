@@ -1,6 +1,8 @@
 class Character < ApplicationRecord
   belongs_to :user
   has_one :planner
+  validates :name, uniqueness: true
+  validates :name, :subtle, :powerful, :resistant, :level, :xp, presence: true
   validates :xp, numericality: true
   validate :validate_leveling_up, :on => :update, if: :just_leveled_up?,
            unless: :skip_level_validation
