@@ -1,6 +1,7 @@
 $(function() {
   $(".js-more").one("click", function() {
     let charID = $(".js-expand").attr("data-id");
+    debugger
     $.get("/characters/" + charID + "/expand/", function(data) {
       $(".js-expand, charID").html(
         `<p> Subtle: ${data["subtle"]}</p>

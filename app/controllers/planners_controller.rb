@@ -5,6 +5,10 @@ class PlannersController < ApplicationController
   def show
     authorize @planner
     @events = @planner.events
+    respond_to do |format|
+      format.html {render :show}
+      format.json {render json: @planner.to_json(include: [:events])}
+    end 
   end
 
   def create
