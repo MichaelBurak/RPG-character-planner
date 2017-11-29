@@ -1,7 +1,11 @@
 jquery project
 To fulfill requirements:
 -Character model Index page - only by default display name and then use Jquery or fetch with a ‘more info’ button to dynamically display the rest of the Character model’s attributes.
+=only display one at a time
+
 -Character show page - add a ‘next’ button to cycle through all the different user's characters(via. inquiring off of user_id and its connection to the character model)
+=reincorporate links
+
 -Rails API reveals one has-many relationship: Planner has many Events. On Planner show page, display.
 	-not sure how to wire this up?
   -AMS, render json/html controller paradigm
