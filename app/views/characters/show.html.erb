@@ -1,12 +1,16 @@
 <p id="notice"><%= notice %></p>
 
-<%= render 'character', character: @character %>
+<div class= "character" data-id="<%= @character.id%>">
+</div>
 
-<% if !!@character.planner %>
-<%= link_to "Planner", character_planner_path(@character) %>
-    <% else %>
-    <%= link_to "Create Planner", character_planners_path(@character), method: :post %>
-<% end %>
-<%= link_to 'Edit', edit_character_path(@character) %> |
-<%= link_to 'Delete Character', @character, method: :delete, data: { confirm: 'Are you sure?' } %></p>
-<%= link_to 'Back', characters_path %>
+
+<%#= render 'character', character: @character %>
+
+<%# if !!@character.planner %>
+<%#= link_to "Planner", character_planner_path(@character) %>
+    <%# else %>
+    <%#= link_to "Create Planner", character_planners_path(@character), method: :post %>
+<%# end %>
+<%#= link_to 'Edit', edit_character_path(@character) %> |
+<%#= link_to 'Delete Character', @character, method: :delete, data: { confirm: 'Are you sure?' } %></p>
+<%#= link_to 'Back', characters_path %>
