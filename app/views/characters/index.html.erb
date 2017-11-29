@@ -11,10 +11,14 @@
 
   <tbody>
     <% @characters.each do |character| %>
-    <%= render 'character', character: character %>
-        <p><%= link_to 'Show the Character', character %></p>
-        <p><%= link_to 'Edit Character', edit_character_path(character) %></p>
-        <p><%= link_to 'Delete Character', character, method: :delete, data: { confirm: 'Are you sure?' } %></p>
+      <p> Character Name: <%= character.name %> </p>
+      <p> Created by: <%= character.user.email %></p>
+      <p> <button class= "js-more"> More info </button>
+      <div class= "js-expand">
+      </div>
+      <p><%= link_to 'Show the Character', character %></p>
+      <p><%= link_to 'Edit Character', edit_character_path(character) %></p>
+      <p><%= link_to 'Delete Character', character, method: :delete, data: { confirm: 'Are you sure?' } %></p>
   -----------------------------------------
     <% end %>
   </tbody>
