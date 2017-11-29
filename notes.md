@@ -44,3 +44,33 @@ Character.sort = function(){
 }
 
 Character.sort();
+
+---
+
+Basic API call and appending structure
+JQUERY-
+(() => {
+  $('.repo-button').on('click', function(e) {
+    e.preventDefault()
+    const user = $('#user-name').val()
+    console.log(user)
+
+    fetch(`https://api.github.com/users/${user}/repos`)
+      .then(res => res.json())
+      .then(data => {
+        data.forEach(repo => {
+           $('#repos').append(`<p>${repo.name}</p>`)  
+        })
+      })
+  })  
+
+
+
+})()
+
+HTML -
+<div id="repos">
+
+</div>
+<input type="text" id="user-name" />
+<button class="repo-button">Get repos</button>

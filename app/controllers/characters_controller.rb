@@ -1,5 +1,5 @@
 class CharactersController < ApplicationController
-  before_action :set_character, only: %i[show edit update destroy experience attribute_selection level_up]
+  before_action :set_character, only: %i[show edit update destroy experience attribute_selection level_up expand]
   before_action :perform_authorization, only: %i[attribute_selection destroy experience level_up update]
 
   def index
@@ -65,6 +65,10 @@ class CharactersController < ApplicationController
       else
         render 'attribute_selection'
       end
+    end
+
+    def expand
+      render json: @character.to_json(only: [:subtle, :powerful, :resistant, :level, :xp])
     end
 
   private
