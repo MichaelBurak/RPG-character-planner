@@ -1,9 +1,11 @@
 <p id="notice"><%= notice %></p>
 
-<div class= "js-character">
-<button class= "js-next" data-id="<%= @character.id%>" > Next character</button>
-</div>
 
+<div class= "js-character">
+</div>
+<button class= "js-next" data-id="<%= @character.id%>" > Next character</button>
+
+<%= javascript_include_tag "application" %>
 
 <%#= render 'character', character: @character %>
 
