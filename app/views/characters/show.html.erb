@@ -4,7 +4,7 @@
 <div class= "js-character">
 </div>
 <button class= "js-next" data-id="<%= @character.id%>" > Next character</button>
-
+<button class= "js-previous" data-id="<%= @character.id%>"> Previous character </button>
 <%= javascript_include_tag "application" %>
 
 <%#= render 'character', character: @character %>
@@ -14,6 +14,6 @@
     <%# else %>
     <%#= link_to "Create Planner", character_planners_path(@character), method: :post %>
 <%# end %>
-<%#= link_to 'Edit', edit_character_path(@character) %> |
+<%#= link_to 'Edit', edit_character_path(@character) %> 
 <%#= link_to 'Delete Character', @character, method: :delete, data: { confirm: 'Are you sure?' } %></p>
 <%#= link_to 'Back', characters_path %>
