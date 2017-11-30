@@ -62,11 +62,3 @@ $(".characters.index").ready(function () {
     });
   });
 });
-
-//<p> Character Name: <%= character.name %> </p>
-//<p> Subtle: <%= character.subtle %> </p>
-//<p> Powerful: <%= character.powerful %> </p>
-//<p> Resistant: <%= character.resistant %> </p>
-//<p> Level: <%= character.level %> </p>
-//<p> XP: <%= character.xp %> </p>
-//<p> Created by: <%= character.user.email %></p>

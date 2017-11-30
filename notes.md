@@ -4,6 +4,7 @@ CURRENT ISSUES:
 -Character index page calls a $(planners.show).ready function
 -planner show page requires hard request instead of just link
 -planner show page calls a $(".characters.show").ready function
+-character show page also requires hard request and calls to planners show page function 
 -This is all probably asset pipeline and turbolinks loading issues.
 
 
