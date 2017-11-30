@@ -1,8 +1,6 @@
 $(".characters.index").ready(function () {
   $(".js-more").on("click", function() {
     let buttonID = $(this).attr("data-id")
-    debugger
-
     $.get("/characters/" + buttonID + "/expand/", function(data) {
       $(`#${buttonID}`).html(
         `<p> Subtle: ${data["subtle"]}</p>
