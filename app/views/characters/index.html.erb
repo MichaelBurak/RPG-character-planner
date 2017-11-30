@@ -13,7 +13,7 @@
     <% @characters.each do |character| %>
       <p> Character Name: <%= character.name %> </p>
       <p> Created by: <%= character.user.email %></p>
-      <div class= "js-expand" data-id="<%=character.id%>" >
+      <div class= "js-expand" id="<%=character.id%>" >
       </div>
       <p> <button class= "js-more" data-id="<%=character.id%>"> More info </button>
         <% if !!character.planner %>

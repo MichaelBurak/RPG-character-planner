@@ -1,11 +1,10 @@
 $(".characters.index").ready(function () {
-  $(".js-more").one("click", function() {
-    let populationID = $(".js-expand").attr("data-id");
+  $(".js-more").on("click", function() {
+    let buttonID = $(this).attr("data-id")
     debugger
-    let buttonID = $(".js-more").attr("data-id")
-    debugger
+
     $.get("/characters/" + buttonID + "/expand/", function(data) {
-      $(".js-expand, populationID").html(
+      $(`#${buttonID}`).html(
         `<p> Subtle: ${data["subtle"]}</p>
          <p> Powerful: ${data["powerful"]} </p>
          <p> Resistant: ${data["resistant"]}</p>
@@ -35,7 +34,7 @@ $(".characters.show").ready(function () {
     const nextID = parseInt($(".js-next").attr("data-id")) + 1;
     $.get("/characters/" + nextID + ".json", function(data) {
       $(".js-character").html(
-        `<p> Character Name: ${data["name"]} </p>
+      `<p> Character Name: ${data["name"]} </p>
        <p> Subtle: ${data["subtle"]}</p>
        <p> Powerful: ${data["powerful"]} </p>
        <p> Resistant: ${data["resistant"]}</p>
@@ -53,7 +52,7 @@ $(".characters.index").ready(function () {
     const nextID = parseInt($(".js-next").attr("data-id")) - 1 ;
     $.get("/characters/" + nextID + ".json", function(data) {
       $(".js-character").html(
-        `<p> Character Name: ${data["name"]} </p>
+      `<p> Character Name: ${data["name"]} </p>
        <p> Subtle: ${data["subtle"]}</p>
        <p> Powerful: ${data["powerful"]} </p>
        <p> Resistant: ${data["resistant"]}</p>
