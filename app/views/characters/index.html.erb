@@ -16,11 +16,11 @@
       <div class= "js-expand" data-id="<%=character.id%>" >
       </div>
       <p> <button class= "js-more"> More info </button>
-        <% if !!character.planner %>
-        <p> <%= link_to "Planner", character_planner_path(character) %> </p>
-      <% else %>
-      <p><%= link_to "Create Planner", character_planners_path(character), method: :post %></p>
-      <% end %>
+        <%# if !!character.planner %>
+        <p> <%#= link_to "Planner", character_planner_path(character) %> </p>
+      <%# else %>
+      <p><%#= link_to "Create Planner", character_planners_path(character), method: :post %></p>
+      <%# end %>
       <p><%= link_to 'Show the Character', character %></p>
       <p><%= link_to 'Edit Character', edit_character_path(character) %></p>
       <p><%= link_to 'Delete Character', character, method: :delete, data: { confirm: 'Are you sure?' } %></p>
