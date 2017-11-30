@@ -1,15 +1,63 @@
 jquery project
 To fulfill requirements:
--Character model Index page - only by default display name and then use Jquery or fetch with a ‘more info’ button to dynamically display the rest of the Character model’s attributes.
-=only display one at a time
+-Character model Index page list of characters - only by default display name and then use Jquery or fetch with a ‘more info’ button to dynamically display the rest of the Character model’s attributes.
+=Current status:
+/Displays more info on click, but changes html of all divs to reflect just the json attributes of the first character, displaying more info and incorrect info on the second and further characters.
+
+Jquery in asset pipeline-
+
+$(function() {
+  $(".js-more").one("click", function() {
+    let charID = $(".js-expand").attr("data-id");
+    debugger
+    $.get("/characters/" + charID + "/expand/", function(data) {
+      $(".js-expand, charID").html(
+        `<p> Subtle: ${data["subtle"]}</p>
+         <p> Powerful: ${data["powerful"]} </p>
+         <p> Resistant: ${data["resistant"]}</p>
+         <p> Level: ${data["level"]}</p>
+         <p> XP: ${data["xp"]}</p>`
+      );
+    });
+  });
+});
+
+Relevant HTML of page:
+<div class= "js-expand" data-id="<%=character.id%>" >
+</div>
+<p> <button class= "js-more"> More info </button>
+
+(<%=character.id%> is rails introspecting on the sqlite3 database to fetch the ID of the object through ERB and interpolate it into HTML. first created character has ID 1, second ID 2, etc.)
+
 
 -Character show page - add a ‘next’ button to cycle through all the different user's characters(via. inquiring off of user_id and its connection to the character model)
-=reincorporate links
+=Current status
+/Works fine, even added 'previous' button.
 
 -Rails API reveals one has-many relationship: Planner has many Events. On Planner show page, display.
-	-not sure how to wire this up?
-  -AMS, render json/html controller paradigm
-  -create separate page to call upon and use handlebars to render template
+=Current status
+/Displays associated object Events, but displays them twice for some reason. Problem with append maybe? Definitely the get request is being called twice, not sure why.
+
+Relevant Jquery:
+$(function() {
+  $.get(window.location.pathname + ".json", function(data) {
+      $.each(data.events, function(){
+        $(".js-events").append(`<h1> ${this.name} </h1>`)
+        $(".js-events").append(`<h1> XP: ${this.xp} </h1>`)
+    })
+  });
+});
+
+(to break this down, first it's a get to the json version of the page, then iterating over the associated events object, appending two attributes - name and xp - to h1s. For some reason it does this twice per object.)
+
+Relevant HTML:
+<h2>Events:
+<div class ="js-events">
+</div>
+
+
+
+
 -Rails API and a form to create and render the response without a page refresh: On Planner show page, remove ‘add event’ link and corresponding controller action and route, add form on page and then dynamically display.
 	-also not sure how to wire this up?
   -on client side, post to ensure persistence on server side
@@ -21,7 +69,8 @@ To fulfill requirements:
 Add AMSerializer
 
 
-remove turbo links in application.js and application.html.erb
+-remove turbo links in application.js and application.html.erb
+-fix asset pipeline to use controller specific logic instead of requiring tree
 
 for JS Model Objects:
 class Character {
