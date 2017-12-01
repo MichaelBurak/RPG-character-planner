@@ -9,7 +9,7 @@ $(document).on("click", ".show-planner", function (e) {
       $.each(data.events, function(){
          $("#content").append(`<h3> <a href="/planners/${plannerID}/events/${this.id}"> Event: ${this.name}, XP: ${this.xp} </a> </h3> <br>`)
      })
-  $("#content").append(`<a href="/planners/${plannerID}/events/new">Add event<a>`)
+  $("#content").append(`<a href="/planners/${plannerID}/events/new">Add event</a> <br> <a class="show-character" data-id="${characterID}" href=""> Back to character <a>`)
    });
 });
 

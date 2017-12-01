@@ -1,14 +1,11 @@
 <h1>Character planner for: <%= @character.name %></h1>
 
-<h2>Events:
-<div class ="js-events">
-</div>
+<h2>Events:</h2>
 
 <%= link_to "Add event", new_planner_event_path(@planner) %>
-<%= link_to "Back", character_path(@character) %>
+<%= link_to "Back", character_path(@character), class: 'show-character', :'data-id' => @character.id %>
 
 
 <%# @events.each do |event| %>
       <%#= link_to "#{event.name}", planner_event_path(@planner, event) %></p>
       <%# end %> </h2>
-      
