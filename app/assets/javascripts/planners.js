@@ -2,9 +2,10 @@ $(document).on("click", ".show-planner", function (e) {
   e.preventDefault()
   const plannerID = $(this).attr("data-planner-id")
   const characterID = $(this).attr("data-character-id")
-  $.get(`${characterID}/planners/${plannerID}` + ".json", function(data) {
-    debugger
-      $("#content").html("")
+  // $.get(`${characterID}/planners/${plannerID}` + ".json", function(data) {
+  //     $("#content").html(`<h1> Character planner for ${$.get(`${characterID}` + ".json", function(data){
+  //       return data["name"]
+  //     )})
       $.each(data.events, function(){
          $("#content").append(`<h1> ${this.name} </h1> <br> <h1> XP: ${this.xp} </h1>`)
      })
