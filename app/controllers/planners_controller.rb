@@ -7,8 +7,8 @@ class PlannersController < ApplicationController
     @events = @planner.events
     respond_to do |format|
       format.html {render :show}
-      format.json {render json: @planner.to_json(include: [:events])}
-    end 
+      format.json {render json: @planner}
+    end
   end
 
   def create

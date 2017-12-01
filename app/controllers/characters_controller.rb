@@ -23,7 +23,7 @@ class CharactersController < ApplicationController
   def show
     respond_to do |format|
       format.html {render :show}
-      format.json {render json: @character.to_json(include: [user: { only: [:email]}])}
+      format.json {render json: @character}
     end
   end
 
