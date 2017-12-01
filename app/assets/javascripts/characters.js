@@ -14,6 +14,7 @@ $(".characters.index").ready(function () {
 });
 
 $(".characters.show").ready(function () {
+  debugger
   $.get(window.location.pathname + ".json", function(data) {
     $(".js-character").html(
       `<p> Character Name: ${data["name"]} </p>
@@ -28,6 +29,7 @@ $(".characters.show").ready(function () {
 });
 
 $(".characters.show").ready(function () {
+  debugger
   $(".js-next").on("click", function() {
     const nextID = parseInt($(".js-next").attr("data-id")) + 1;
     $.get("/characters/" + nextID + ".json", function(data) {
@@ -45,7 +47,8 @@ $(".characters.show").ready(function () {
   });
 });
 
-$(".characters.index").ready(function () {
+$(".characters.show").ready(function () {
+  debugger 
   $(".js-previous").on("click", function() {
     const nextID = parseInt($(".js-next").attr("data-id")) - 1 ;
     $.get("/characters/" + nextID + ".json", function(data) {
