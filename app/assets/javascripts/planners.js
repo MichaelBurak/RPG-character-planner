@@ -12,17 +12,3 @@ $(document).on("click", ".show-planner", function (e) {
   $("#content").append(`<a href="/planners/${plannerID}/events/new">Add event</a> <br> <a class="show-character" data-id="${characterID}" href=""> Back to character <a>`)
    });
 });
-
-//<h1>Character planner for: <%= @character.name %></h1>
-
-// <h2>Events:
-// <div class ="js-events">
-// </div>
-//
-// <%= link_to "Add event", new_planner_event_path(@planner) %>
-//planners/:planner_id/events/new(.:format)                          events#new
-// <%= link_to "Back", character_path(@character) %>
-//
-//
-//
-//planner_event GET      /planners/:planner_id/events/:id(.:format)                          events#show

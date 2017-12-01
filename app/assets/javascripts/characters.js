@@ -16,8 +16,7 @@ $(document).ready(function () {
     e.preventDefault()
     const id = $(this).attr("data-id")
     $('#content').html('')
-    //stops here on newly created planner's show page's back button
-    $.get(`characters/${id}.json`, function(data) {
+    $.get(`/characters/${id}.json`, function(data) {
         $("#content").html(`<p> Character Name: ${data["name"]} </p>
            <p> Subtle: ${data["subtle"]}</p>
            <p> Powerful: ${data["powerful"]} </p>
