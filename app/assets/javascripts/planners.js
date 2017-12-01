@@ -9,6 +9,17 @@ $(document).on("click", ".show-planner", function (e) {
       $.each(data.events, function(){
          $("#content").append(`<h3> <a href="/planners/${plannerID}/events/${this.id}"> Event: ${this.name}, XP: ${this.xp} </a> </h3> <br>`)
      })
-  $("#content").append(`<a class="show-character" data-id="${characterID}" href=""> Back to character <a>`)
+  $("#content").append(`<form class=“js-add-event” action=/planners/${plannerID}/events/ accept-charset="UTF-8" method="post">
+    Add Event <label for="event_name">Name</label>
+    <input type="text" name="event[name]" id="event_name">
+    <label for="event_xp">Xp</label>
+    <input type="number" name="event[xp]" id="event_xp">
+
+  <div class="actions">
+    <input type="submit" name="commit" value=“Create Event“ data-disable-with=“Create Event“>
+    <input type="hidden" name="authenticity_token" value=${$('meta[name="csrf-token"]')}>
+  </div>
+</form>
+<a class="show-character" data-id="${characterID}" href=""> Back to character <a>`)
    });
 });
