@@ -17,7 +17,7 @@
       </div>
       <p> <button class= "js-more" data-id="<%=character.id%>"> More info </button>
         <% if !!character.planner %>
-        <p> <%= link_to "Planner", character_planner_path(character, character.planner) %> </p>
+        <p> <%= link_to "Planner", character_planner_path(character, character.planner), class: "show-planner", :'data-character-id' => character.id, :'data-planner-id' => character.planner.id %> </p>
       <% else %>
       <p><%= link_to "Create Planner", character_planners_path(character), method: :post %></p>
       <% end %>
