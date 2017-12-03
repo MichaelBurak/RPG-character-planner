@@ -1,3 +1,19 @@
+//When button with js-more class is clicked, introspect on button's data-id corresponding to character's id
+//and display more info from API route of expand.
+  $(document).ready(function () { 
+  $(".js-more").on("click", function() {
+    let buttonID = $(this).attr("data-id")
+    $.get("/characters/" + buttonID + "/expand/", function(data) {
+      $(`#${buttonID}`).html(
+        `<p> Subtle: ${data["subtle"]}</p>
+         <p> Powerful: ${data["powerful"]} </p>
+         <p> Resistant: ${data["resistant"]}</p>
+         <p> Level: ${data["level"]}</p>
+         <p> XP: ${data["xp"]}</p>`
+      );
+    });
+  });
+
 //When character show page link is clicked, clear html, then get request from json version
 //of character page and populate with JSON versions of ActiveRecord model, with buttons.
 
@@ -18,21 +34,6 @@ $(document).on('click', ".show-character", function(e) {
       );
     });
 
-//When button with js-more class is clicked, introspect on button's data-id corresponding to character's id
-//and display more info from API route of expand.
-  $(document).ready(function () {
-  $(".js-more").on("click", function() {
-    let buttonID = $(this).attr("data-id")
-    $.get("/characters/" + buttonID + "/expand/", function(data) {
-      $(`#${buttonID}`).html(
-        `<p> Subtle: ${data["subtle"]}</p>
-         <p> Powerful: ${data["powerful"]} </p>
-         <p> Resistant: ${data["resistant"]}</p>
-         <p> Level: ${data["level"]}</p>
-         <p> XP: ${data["xp"]}</p>`
-      );
-    });
-  });
 
   //When js-next class button is clicked, set const to button-id + 1, grab and replace content with
   //next character. Reset button-ids on previous and next buttons.
