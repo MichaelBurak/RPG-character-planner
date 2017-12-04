@@ -36,11 +36,12 @@ $(document).on("click", ".show-planner", function (e) {
     var plannerID = $(this).attr("data-planner-id")
     var values = $(this).serializeArray()
     var posting = $.post(`planners/${plannerID}/events`, values);
+      posting.done(function (){
       $.get(`/characters/${characterID}/planners/${plannerID}` + ".json", function(data) {
         var lastEvent = Object.values(data.events)[data.events.length -1]
-        debugger
         $(".js-events").append(`<h3> <a href="/planners/${plannerID}/events/${lastEvent.id}"> Event: ${lastEvent.name}, XP: ${lastEvent.xp} </a> </h3> <br>`)
         alert("Event successfully created!")
+      })
 })
 });
 }
