@@ -11,7 +11,6 @@ class EventsController < ApplicationController
   def create
     @event = @planner.events.new(event_params)
     if @event.save
-      redirect_to planner_event_path(@planner, @event), notice: 'Event was successfully created.'
     else
       render :new
     end

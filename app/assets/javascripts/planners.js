@@ -21,7 +21,7 @@ $(document).on("click", ".show-planner", function (e) {
     <input type="text" name="event[name]" id="event_name">
     <label for="event_xp">Xp</label>
     <input type="number" name="event[xp]" id="event_xp">
-    <input type="submit" name="commit" value="Create Event" data-disable-with="Create Event">
+    <input type="submit" name="commit" value="Create Event">
     <input type="hidden" name="authenticity_token" value=${$("meta[name='csrf-token']").attr('content')}>
 </form>
 <a class="show-character" data-id="${characterID}" href=""> Back to character <a>`)
@@ -38,7 +38,9 @@ $(document).on("click", ".show-planner", function (e) {
     var posting = $.post(`planners/${plannerID}/events`, values);
       $.get(`/characters/${characterID}/planners/${plannerID}` + ".json", function(data) {
         var lastEvent = Object.values(data.events)[data.events.length -1]
+        debugger
         $(".js-events").append(`<h3> <a href="/planners/${plannerID}/events/${lastEvent.id}"> Event: ${lastEvent.name}, XP: ${lastEvent.xp} </a> </h3> <br>`)
+        alert("Event successfully created!")
 })
 });
 }
