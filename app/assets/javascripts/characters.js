@@ -1,6 +1,6 @@
 //When button with js-more class is clicked, introspect on button's data-id corresponding to character's id
 //and display more info from API route of expand.
-  $(document).ready(function () { 
+  $(document).ready(function () {
   $(".js-more").on("click", function() {
     let buttonID = $(this).attr("data-id")
     $.get("/characters/" + buttonID + "/expand/", function(data) {
@@ -13,6 +13,9 @@
       );
     });
   });
+
+//grab data from character, then turn into object, then call prototypal method instead of 
+//.html
 
 //When character show page link is clicked, clear html, then get request from json version
 //of character page and populate with JSON versions of ActiveRecord model, with buttons.

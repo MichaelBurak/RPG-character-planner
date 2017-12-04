@@ -11,6 +11,7 @@ class EventsController < ApplicationController
   def create
     @event = @planner.events.new(event_params)
     if @event.save
+      render json: @event 
     else
       render :new
     end
