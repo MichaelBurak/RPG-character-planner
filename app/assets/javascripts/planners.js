@@ -16,7 +16,7 @@ $(document).on("click", ".show-planner", function (e) {
       $.each(data.events, function(){
          $(".js-events").append(`<h3> <a href="/planners/${plannerID}/events/${this.id}"> Event: ${this.name}, XP: ${this.xp} </a> </h3> <br>`)
      })
-  $("#content").append(`<form class="new-event" id="new_event" data-planner-id="${plannerID}" action=/planners/${plannerID}/events/ accept-charset="UTF-8" method="post">
+  $("#content").append(`<form class="new-event" id="new_event" data-planner-id="${plannerID}" data-character-id="${characterID}" action=/planners/${plannerID}/events/ accept-charset="UTF-8" method="post">
     Add Event <label for="event_name">Name</label>
     <input type="text" name="event[name]" id="event_name">
     <label for="event_xp">Xp</label>
@@ -33,6 +33,7 @@ $(document).on("click", ".show-planner", function (e) {
   function submissionHandler(){
     $(".new-event").submit( function (e) {
     e.preventDefault();
+    const characterID = $(this).attr("data-character-id")
     const plannerID = $(this).attr("data-planner-id")
     const values = $(this).serializeArray()
     const posting = $.post(`planners/${plannerID}/events`, values);
