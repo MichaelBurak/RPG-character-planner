@@ -33,9 +33,9 @@ $(document).on("click", ".show-planner", function (e) {
   function submissionHandler(){
     $(".new-event").submit( function (e) {
     e.preventDefault();
-    var plannerID = $(this).attr("data-planner-id")
-    var values = $(this).serializeArray()
-    var posting = $.post(`planners/${plannerID}/events`, values);
+    const plannerID = $(this).attr("data-planner-id")
+    const values = $(this).serializeArray()
+    const posting = $.post(`planners/${plannerID}/events`, values);
       posting.done(function (){
       $.get(`/characters/${characterID}/planners/${plannerID}` + ".json", function(data) {
         var lastEvent = Object.values(data.events)[data.events.length -1]
