@@ -1,9 +1,7 @@
-//$(document).ready(function () {
-
-
 //On clicking planner show link, hijack default, set planned id and character id off introspecting
 //on link data, fire get request to appropriate character and planner json pages, add and append
-//appropriate descriptions of what character, event with attributes, and a form to create new event.
+//appropriate descriptions of what character, event with attributes, and a form to create new event,
+//call posting and response function to append js events if form submitted.
 
 $(document).on("click", ".show-planner", function (e) {
   e.preventDefault()
@@ -38,7 +36,6 @@ $(document).on("click", ".show-planner", function (e) {
     const values = $(this).serializeArray()
     const posting = $.post(`planners/${plannerID}/events`, values);
       posting.done(function (data){
-        debugger
         $(".js-events").append(`<h3> <a href="/planners/${plannerID}/events/${data["id"]}"> Event: ${data["name"]}, XP: ${data["xp"]} </a> </h3> <br>`)
         alert("Event successfully created!")
       })
