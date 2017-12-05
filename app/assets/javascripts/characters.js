@@ -1,21 +1,29 @@
 //When button with js-more class is clicked, introspect on button's data-id corresponding to character's id
-//and display more info from API route of expand.
+//and display more info from API route of expand using newly created ECharacter object and prototypal method.
   $(document).ready(function () {
+    function ECharacter(subtle, powerful, resistant, level, xp){
+      this.subtle = subtle
+      this.powerful = powerful
+      this.resistant = resistant
+      this.level = level
+      this.xp = xp
+    }
   $(".js-more").on("click", function() {
     let buttonID = $(this).attr("data-id")
-    $.get("/characters/" + buttonID + "/expand/", function(data) {
+    ECharacter.prototype.expand = function(){
       $(`#${buttonID}`).html(
-        `<p> Subtle: ${data["subtle"]}</p>
-         <p> Powerful: ${data["powerful"]} </p>
-         <p> Resistant: ${data["resistant"]}</p>
-         <p> Level: ${data["level"]}</p>
-         <p> XP: ${data["xp"]}</p>`
-      );
-    });
-  });
-
-//grab data from character, then turn into object, then call prototypal method instead of 
-//.html
+        `<p> Subtle: ${this.subtle}</p>
+         <p> Powerful: ${this.powerful} </p>
+         <p> Resistant: ${this.resistant}</p>
+         <p> Level: ${this.level}</p>
+         <p> XP: ${this.xp}</p>`)
+       };
+    $.get("/characters/" + buttonID + "/expand/", function(data) {
+      expandedCharacter = new ECharacter(data["subtle"], data["powerful"], data["resistant"],
+      data["level"], data["xp"])
+      expandedCharacter.expand()
+     });
+   })
 
 //When character show page link is clicked, clear html, then get request from json version
 //of character page and populate with JSON versions of ActiveRecord model, with buttons.
