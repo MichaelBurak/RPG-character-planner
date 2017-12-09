@@ -24,7 +24,6 @@ $(document).on("click", ".show-planner", function (e) {
 </form>
 <a class="show-character" data-id="${characterID}" href=""> Back to character <a>`)
   submissionHandler()
-  //   debugger
 });
 
 

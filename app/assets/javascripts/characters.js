@@ -46,8 +46,8 @@ $(document).on('click', ".show-character", function(e) {
     });
 
 
-  //When js-next class button is clicked, set const to button-id + 1, grab and replace content with
-  //next character. Reset button-ids on previous and next buttons.
+  //When js-next class button is clicked, set const to button-id + 1 or -1, grab and replace content with
+  //next or previous character. Reset button-ids on previous and next buttons.
       $(document).on("click", ".js-next", function() {
         const nextID = parseInt($(".js-next").attr("data-button-id")) + 1;
         $.get("/characters/" + nextID + ".json", function(data) {
