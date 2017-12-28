@@ -27,6 +27,14 @@ $(document).on("click", ".show-planner", function (e) {
 });
 
 
+//A basic handler for dynamic submission and rendering instead of the default when
+//creating a new event. When the new-event form submits, prevent the default action.
+//Then introspect on the form's character's id through the linked attribute, and its
+//planner id. Set these to constants. Serialize the array of values of the form's
+//submission data, pass these through in a post to the form's creation route.
+//Finally, append a link to the appropriate event into js-events and alert the user that
+//the event has been created.
+
   function submissionHandler(){
     $(".new-event").submit( function (e) {
     e.preventDefault();

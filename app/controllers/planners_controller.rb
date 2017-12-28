@@ -2,6 +2,8 @@ class PlannersController < ApplicationController
   before_action :set_character, only: [:show]
   before_action :set_planner, only: [:show]
 
+  #Allows for a JSON page containing the planner's serialized data to be used by app.
+
   def show
     authorize @planner
     @events = @planner.events

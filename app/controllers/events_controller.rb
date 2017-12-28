@@ -8,10 +8,14 @@ class EventsController < ApplicationController
     @event.treasures.build
   end
 
+
+  #As event creation is done through jQuery and JSON, in order to accomplish a
+  #proper render experience that is intuitive, render the JSON of the new event.  
+
   def create
     @event = @planner.events.new(event_params)
     if @event.save
-      render json: @event 
+      render json: @event
     else
       render :new
     end

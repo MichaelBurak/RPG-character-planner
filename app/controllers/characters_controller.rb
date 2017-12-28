@@ -20,6 +20,10 @@ class CharactersController < ApplicationController
     end
   end
 
+#On the show page, when calling for the html version, render the appropriate view.
+#When calling for the .json version of the page, render @character as set by set_character
+#as JSON using AMSerializer.
+
   def show
     respond_to do |format|
       format.html {render :show}
@@ -70,6 +74,10 @@ class CharactersController < ApplicationController
         render 'attribute_selection'
       end
     end
+
+    #Render the appropriate character as a JSON object on this page, but only the attributes
+    #that have not been displayed on the index page, that are to be displayed with the
+    #'more info' button.
 
     def expand
       render json: @character.to_json(only: [:subtle, :powerful, :resistant, :level, :xp])

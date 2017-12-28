@@ -8,7 +8,7 @@ Rails.application.routes.draw do
 
   get 'characters/:id(.:format)/experience', to: 'characters#experience', as: 'character_experience'
   get 'characters/:id(.:format)/attribute_selection', to: 'characters#attribute_selection', as: 'character_attributes'
-    get 'characters/:id(.:format)/expand', to: 'characters#expand'
+  get 'characters/:id(.:format)/expand', to: 'characters#expand'
   patch 'characters/:id(.:format)/level_up', to: 'characters#level_up', as: 'character_level_update'
 
   resources :planners, only: %i[] do
