@@ -86,24 +86,4 @@ $(document).on('click', ".show-character", function(e) {
       })
     });
 
-//When the form of .js-search is submitted, prevent the default submission.
-//Create a new constant out of the name that is being searched by introspecting on the
-//searched name field's value. Call a get request to the character search API route
-//including the name to get the correct character. Change the div of searchResult's
-//html to display the data about the proper, searched for character.
-
-    $(document).on('submit', '.js-search', function(event){
-      event.preventDefault()
-      const searchedName = $("#searchedName").val()
-      $.get("/characters/" + "search/" + searchedName + ".json", function(data){
-        $(".searchResult").html(
-        `<p> Character Name: ${data["name"]} </p>
-         <p> Subtle: ${data["subtle"]}</p>
-         <p> Powerful: ${data["powerful"]} </p>
-         <p> Resistant: ${data["resistant"]}</p>
-         <p> Level: ${data["level"]}</p>
-         <p> XP: ${data["xp"]}</p>`)
-      } )
-    })
-
 });
