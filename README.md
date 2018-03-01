@@ -13,4 +13,4 @@ connect to local server, or use deployed link for live app.
 
 This app is available as open source under the terms of the MIT License accessible at https://opensource.org/licenses/MIT.
 
-*Deployed at rpg-character-planner.herokuapp.com
+*Deployed at rpg-character-planner.herokuapp.com 

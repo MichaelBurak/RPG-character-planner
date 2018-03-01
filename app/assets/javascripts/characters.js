@@ -41,7 +41,8 @@ $(document).on('click', ".show-character", function(e) {
          <p> XP: ${data["xp"]}</p>
          <p> Created by: ${data["user"]["email"]}</p>
          <p> <button class= "js-next" data-button-id = "${id}"> Next Character </button>
-         <p> <button class= "js-previous" data-button-id = "${id}"> Previous Character </button>`
+         <p> <button class= "js-previous" data-button-id = "${id}"> Previous Character </button>
+         <p> <button class= "js-delete" data-button-id = "${id}"> Delete Character </button>`
       );
     });
 
@@ -60,10 +61,12 @@ $(document).on('click', ".show-character", function(e) {
            <p> XP: ${data["xp"]}</p>
            <p> Created by: ${data["user"]["email"]}</p>
            <p> <button class= "js-next" data-button-id = "${id}"> Next Character </button>
-           <p> <button class= "js-previous" data-button-id = "${id}"> Previous Character </button>`
+           <p> <button class= "js-previous" data-button-id = "${id}"> Previous Character </button>
+           <p> <button class= "js-delete" data-button-id = "${id}"> Delete Character </button>`
           );
           $(".js-next").attr("data-button-id", data["id"])
           $(".js-previous").attr("data-button-id", data["id"]);
+          $(".js-delete").attr("data-button-id", data["id"])
         });
       });
       $(document).on("click", ".js-previous", function() {
@@ -78,12 +81,25 @@ $(document).on('click', ".show-character", function(e) {
            <p> XP: ${data["xp"]}</p>
            <p> Created by: ${data["user"]["email"]}</p>
            <p> <button class= "js-next" data-button-id = "${id}"> Next Character </button>
-           <p> <button class= "js-previous" data-button-id = "${id}"> Previous Character </button>`
+           <p> <button class= "js-previous" data-button-id = "${id}"> Previous Character </button>
+           <p> <button class= "js-delete" data-button-id = "${id}"> Delete Character </button>`
           );
           $(".js-next").attr("data-button-id", data["id"])
           $(".js-previous").attr("data-button-id", data["id"]);
+          $(".js-delete").attr("data-button-id", data["id"])
         });
       })
     });
+
+    $(document).on("click", ".js-delete", function() {
+      const deleteID = parseInt($(".js-delete").attr("data-button-id"));
+      $.ajax({
+        url: `/characters/${deleteID}`,
+        type: 'DELETE',
+        success: function(result) {
+        console.log("Deleted")
+    }
+});
+      });
 
 });
