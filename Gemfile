@@ -18,6 +18,7 @@ gem 'uglifier', '>= 1.3.0'
 gem 'coffee-rails', '~> 4.2'
 # See https://github.com/rails/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby
+gem 'pg' 
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
@@ -59,8 +60,6 @@ gem 'devise'
 gem 'omniauth-github'
 
 gem 'pundit'
-
-gem 'pg' 
 
 group :production do
   gem 'rails_12factor'
