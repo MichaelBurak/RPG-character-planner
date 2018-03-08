@@ -61,6 +61,6 @@ gem 'omniauth-github'
 gem 'pundit'
 
 group :production do
-  gem 'pg'
+  gem 'pg' 
   gem 'rails_12factor'
 end
