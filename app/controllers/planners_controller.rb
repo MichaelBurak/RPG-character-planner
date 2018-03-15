@@ -1,5 +1,5 @@
 class PlannersController < ApplicationController
-  before_action :set_character, only: [:show]
+  before_action :set_character, only: [:show, :create]
   before_action :set_planner, only: [:show]
 
   #Allows for a JSON page containing the planner's serialized data to be used by app.
@@ -14,7 +14,6 @@ class PlannersController < ApplicationController
   end
 
   def create
-    @character = Character.find(params[:character_id])
     @user = current_user
     @planner = Planner.new(:character_id => @character.id, :user_id => @user.id)
       if @planner.save
