@@ -1,3 +1,4 @@
+<div class="js-character"> 
 <p> Character Name: <%= character.name %> </p>
 <p> Subtle: <%= character.subtle %> </p>
 <p> Powerful: <%= character.powerful %> </p>
@@ -5,3 +6,7 @@
 <p> Level: <%= character.level %> </p>
 <p> XP: <%= character.xp %> </p>
 <p> Created by: <%= character.user.email %></p>
+<p><button class= "js-next" data-button-id = "<%=character.id %>">Next Character </button></p>
+<p><button class= "js-previous" data-button-id = "<%=character.id %>">Previous Character </button></p>
+<p><button class= "js-delete" data-button-id = "<%=character.id %>">Delete Character</button></p>
+</div>
