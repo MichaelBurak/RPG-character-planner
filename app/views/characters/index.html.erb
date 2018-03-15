@@ -24,13 +24,13 @@
       <%# this button is to on click trigger display of more info of the appropriate
       character based on the data-id using the expand action and route and jQuery.%>
       
-      <p> <button class= "js-more" data-id="<%=character.id%>"> More info </button>
+      <button class= "js-more" data-id="<%=character.id%>"> More info </button>
         <% if !!character.planner %>
         <p> <%= link_to "Planner", character_planner_path(character, character.planner), class: "show-planner", :'data-character-id' => character.id, :'data-planner-id' => character.planner.id %> </p>
       <% else %>
       <p><%= link_to "Create Planner", character_planners_path(character), method: :post %></p>
       <% end %>
-      <p><%= link_to 'Show the Character', character, class: 'show-character', :'data-id' => character.id %></p>
+      <p><%= link_to 'Show the Character', character, class: 'show-character', :'data-id' => character.id, :remote => true %></p>
       <p><%= link_to 'Edit Character', edit_character_path(character) %></p>
       <p><%= link_to 'Delete Character', character, method: :delete, data: { confirm: 'Are you sure?' } %></p>
   -----------------------------------------
@@ -40,4 +40,6 @@
 
 <br>
 
+<% if current_user %>
 <%= link_to 'New Character', new_character_path %>
+<% end %>
