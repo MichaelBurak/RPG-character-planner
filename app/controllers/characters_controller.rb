@@ -3,7 +3,11 @@ class CharactersController < ApplicationController
   before_action :perform_authorization, only: %i[attribute_selection destroy experience level_up update]
 
   def index
-    @characters = Character.all
+    @characters = Character.order("id ASC")
+    respond_to do |format|
+      format.html {render :index}
+      format.json {render json: @characters}
+    end
   end
 
   def new
@@ -26,8 +30,9 @@ class CharactersController < ApplicationController
 
   def show
     respond_to do |format|
-      format.html {render :show}
+      format.js
       format.json {render json: @character}
+      format.html {render :show}
     end
   end
 
