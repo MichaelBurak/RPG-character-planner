@@ -2,12 +2,5 @@
 
 
 <div class= "js-character">
+<%= render @character %>
 </div>
-
-<%# these two buttons trigger jQuery that dynamically displays the next character's
-show page data, or the previous, and then sets their data-id values to the appropriate
-character ids afterwards to allow for multiple clicks and going fully through all
-characters in the DB. %>
-
-<button class= "js-next" data-id="<%= @character.id%>" > Next character</button>
-<button class= "js-previous" data-id="<%= @character.id%>"> Previous character </button>
