@@ -10,10 +10,17 @@
   </thead>
 
   <tbody>
-    <% @characters.each do |character| %>
-      <p> Character Name: <%= character.name %> </p>
-      <p> Created by: <%= character.user.email %></p>
 
+    <% @characters.each do |character| %>
+        <div class="row">
+        <div class="col s12 m6">
+        <div class="card">
+        <hr/>
+        
+      <h4> Character Name: <%= character.name %> </h4>
+      <h5> Created by: <%= character.user.email %></h5>
+      <hr/>
+      <br/>
       <%# this div-class is to be filled in with data after the more info button is
       clicked, and contains an appropriate id for the jQuery function to know which
       character to display the data of.%>
@@ -25,15 +32,25 @@
       character based on the data-id using the expand action and route and jQuery.%>
       
       <button class= "js-more" data-id="<%=character.id%>"> More info </button>
+      <br/>
+      <br/>
+      <hr/>
         <% if !!character.planner %>
-        <p> <%= link_to "Planner", character_planner_path(character, character.planner), class: "show-planner", :'data-character-id' => character.id, :'data-planner-id' => character.planner.id %> </p>
+        <ul>
+        <li> <%= link_to "Planner", character_planner_path(character, character.planner), class: "show-planner", :'data-character-id' => character.id, :'data-planner-id' => character.planner.id %> </li>
       <% else %>
-      <p><%= link_to "Create Planner", character_planners_path(character), method: :post %></p>
+      <li><%= link_to "Create Planner", character_planners_path(character), method: :post %></li>
       <% end %>
-      <p><%= link_to 'Show the Character', character, class: 'show-character', :'data-id' => character.id, :remote => true %></p>
-      <p><%= link_to 'Edit Character', edit_character_path(character) %></p>
-      <p><%= link_to 'Delete Character', character, method: :delete, data: { confirm: 'Are you sure?' } %></p>
-  -----------------------------------------
+      <li><%= link_to 'Show the Character', character, class: 'show-character', :'data-id' => character.id, :remote => true %></li>
+      <li><%= link_to 'Edit Character', edit_character_path(character) %></li>
+      <li><%= link_to 'Delete Character', character, method: :delete, data: { confirm: 'Are you sure?' } %></li>
+      </ul>
+<hr/>
+</br>
+
+  </div>
+  </div>
+  </div>
     <% end %>
   </tbody>
 </table>
