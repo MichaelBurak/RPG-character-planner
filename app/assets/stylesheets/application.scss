@@ -1,0 +1,30 @@
+// $primary-color-dark: #0097a7;
+// $primary-color: #00bcd4;
+// $primary-color-light: #b2ebf2;
+// $primary-color-text: #ffffff;
+// $accent-color: #03a9f4;
+// $primary-text-color: #ffffff;
+// $secondary-text-color: #ffffff;
+// $divider-color: #bdbdbd;
+// $body-bg: #757575;
+
+// $primary: (
+// 	color: $primary-color,
+// 	dark: $primary-color-dark,
+// 	light: $primary-color-light
+// );
+
+@import 'materialize/components/color-variables';
+$primary-color: #00bcd4 !default;
+$primary-color-dark: #0097a7 !default;
+$primary-color: #00bcd4 !default;
+$primary-color-light: #b2ebf2 !default;
+$primary-color-text: #ffffff !default;
+$accent-color: #03a9f4 !default;
+$primary-text-color: #ffffff !default;
+$secondary-text-color: #ffffff !default;
+$divider-color: #bdbdbd !default;
+$body-bg: #757575 !default;
+
+@import 'materialize';
+@import 'https://fonts.googleapis.com/icon?family=Material+Icons';
